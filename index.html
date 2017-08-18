@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="NarrowItDownApp">
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+<body>
+  <div class="container" ng-controller="NarrowItDownController as ctrl">
+    <h1 class="row">Narrow Down Your Chinese Menu Choice</h1>
+
+    <div class="form-group row">
+      <input type="text" placeholder="search term" class="form-control" ng-model="ctrl.searchTerm">
+      <button class="btn btn-primary narrow-button" ng-click="ctrl.search();">Narrow It Down For Me!</button>
+    </div>
+
+    <!-- found-items should be implemented as a component -->
+    <found-items found="ctrl.found" on-remove="ctrl.onRemove(index)"></found-items>
+
+    <div class="form-group row" ng-if="ctrl.msg.length > 0">{{ctrl.msg}}<div>
+
+  </div>
+
+  <!-- 5. import angularJS into your project and place script tag before </body> tag -->
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
